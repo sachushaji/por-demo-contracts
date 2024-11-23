@@ -93,6 +93,8 @@ function mint(address _to, uint256 _amount) external onlyOwner {
             currentSupply =
                 currentSupply *
                 10**uint256(reserveDecimals - trueDecimals);
+            _amount = _amount * 10**uint256(reserveDecimals - trueDecimals);
+                   
         } else if (trueDecimals > reserveDecimals) {
             reserves = reserves * 10**uint256(trueDecimals - reserveDecimals);
         }
